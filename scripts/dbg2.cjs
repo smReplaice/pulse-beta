@@ -1,0 +1,21 @@
+const { chromium } = require('playwright-core');
+const os = require('os'); const path = require('path');
+const EXEC = path.join(os.homedir(), 'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+(async () => {
+  const browser = await chromium.launch({ executablePath: EXEC, headless: true });
+  const page = await (await browser.newContext({ viewport: { width: 1600, height: 950 } })).newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push('PAGEERROR: ' + e.message));
+  page.on('console', (m) => m.type() === 'error' && errors.push('CONSOLE: ' + m.text().slice(0, 300)));
+  await page.goto('http://localhost:5175', { waitUntil: 'networkidle' });
+  await page.getByText('Sample Delivery Programme').first().click();
+  await page.waitForSelector('.grid-row', { timeout: 15000 });
+  await page.locator('.vbtn[title="Resource Usage"]').click();
+  await page.waitForTimeout(1500);
+  const titles = await page.locator('.vbtn').evaluateAll(els => els.map(e => e.getAttribute('title')));
+  console.log('VIEW BUTTONS:', titles);
+  console.log('ERRORS:', errors.length ? errors : 'none');
+  const costs = page.locator('.vbtn[title="Progress & Costs"]');
+  console.log('costs count:', await costs.count(), 'visible:', await costs.isVisible().catch(() => 'err'));
+  await browser.close();
+})();

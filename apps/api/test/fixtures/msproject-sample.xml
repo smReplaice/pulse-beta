@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  Hand-authored MSPDI (Microsoft Project XML Interchange) fixture.
+  Provenance: written from the public MSPDI schema documentation for testing;
+  contains no Microsoft proprietary content. Exercises: nonsequential UIDs,
+  nested summaries, milestones, FS/SS/FF links, negative lag, calendar
+  exception, work + material resources, assignments, task baseline,
+  partial completion, manual scheduling, constraint, deadline.
+-->
+<Project xmlns="http://schemas.microsoft.com/project">
+  <Name>Riverside Block B</Name>
+  <StartDate>2027-03-01T08:00:00</StartDate>
+  <ScheduleFromStart>1</ScheduleFromStart>
+  <HoursPerDay>8</HoursPerDay>
+  <HoursPerWeek>40</HoursPerWeek>
+  <DaysPerMonth>20</DaysPerMonth>
+  <CurrencySymbol>$</CurrencySymbol>
+  <CalendarUID>1</CalendarUID>
+  <Calendars>
+    <Calendar>
+      <UID>1</UID>
+      <Name>Standard</Name>
+      <IsBaseCalendar>1</IsBaseCalendar>
+      <BaseCalendarUID>-1</BaseCalendarUID>
+      <WeekDays>
+        <WeekDay><DayType>1</DayType><DayWorking>0</DayWorking></WeekDay>
+        <WeekDay><DayType>2</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime>
+            <WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+        <WeekDay><DayType>3</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime>
+            <WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+        <WeekDay><DayType>4</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime>
+            <WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+        <WeekDay><DayType>5</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime>
+            <WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+        <WeekDay><DayType>6</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>08:00:00</FromTime><ToTime>13:00:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+        <WeekDay><DayType>7</DayType><DayWorking>0</DayWorking></WeekDay>
+      </WeekDays>
+      <Exceptions>
+        <Exception>
+          <Name>Foundation Day</Name>
+          <DayWorking>0</DayWorking>
+          <TimePeriod><FromDate>2027-03-08T00:00:00</FromDate><ToDate>2027-03-08T23:59:00</ToDate></TimePeriod>
+        </Exception>
+      </Exceptions>
+    </Calendar>
+    <Calendar>
+      <UID>9</UID>
+      <Name>Night Shift</Name>
+      <IsBaseCalendar>0</IsBaseCalendar>
+      <BaseCalendarUID>1</BaseCalendarUID>
+      <WeekDays>
+        <WeekDay><DayType>2</DayType><DayWorking>1</DayWorking>
+          <WorkingTimes>
+            <WorkingTime><FromTime>20:00:00</FromTime><ToTime>23:59:00</ToTime></WorkingTime>
+          </WorkingTimes>
+        </WeekDay>
+      </WeekDays>
+    </Calendar>
+  </Calendars>
+  <Tasks>
+    <Task>
+      <UID>100</UID><ID>1</ID><Name>Riverside Block B</Name><Type>0</Type><OutlineLevel>1</OutlineLevel>
+      <Summary>1</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT720H0M0S</Duration><Start>2027-03-01T08:00:00</Start><Finish>2027-05-28T17:00:00</Finish>
+      <PercentComplete>20</PercentComplete><Work>PT2000H0M0S</Work><ActualWork>PT400H0M0S</ActualWork>
+      <Baseline><Start>2027-03-01T08:00:00</Start><Finish>2027-05-21T17:00:00</Finish><Duration>PT680H0M0S</Duration><Work>PT2000H0M0S</Work><Cost>185000</Cost></Baseline>
+    </Task>
+    <Task>
+      <UID>205</UID><ID>2</ID><Name>Enabling works</Name><Type>0</Type><OutlineLevel>2</OutlineLevel>
+      <Summary>1</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT160H0M0S</Duration><Start>2027-03-01T08:00:00</Start><Finish>2027-03-12T17:00:00</Finish>
+      <PercentComplete>100</PercentComplete>
+    </Task>
+    <Task>
+      <UID>210</UID><ID>3</ID><Name>Site survey</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT40H0M0S</Duration><Start>2027-03-01T08:00:00</Start><Finish>2027-03-04T17:00:00</Finish>
+      <PercentComplete>100</PercentComplete><ActualStart>2027-03-01T08:00:00</ActualStart><ActualFinish>2027-03-04T17:00:00</ActualFinish>
+      <ActualWork>PT40H0M0S</ActualWork><Priority>700</Priority><Notes>Verify bench marks</Notes>
+      <Baseline><Start>2027-03-01T08:00:00</Start><Finish>2027-03-04T17:00:00</Finish><Duration>PT40H0M0S</Duration><Work>PT40H0M0S</Work><Cost>3400</Cost></Baseline>
+    </Task>
+    <Task>
+      <UID>215</UID><ID>4</ID><Name>Demolition</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT80H0M0S</Duration><Start>2027-03-05T08:00:00</Start><Finish>2027-03-12T17:00:00</Finish>
+      <PercentComplete>60</PercentComplete><ActualStart>2027-03-05T08:00:00</ActualStart>
+      <ConstraintType>4</ConstraintType><ConstraintDate>2027-03-05T08:00:00</ConstraintDate>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>210</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+      <Baseline><Start>2027-03-05T08:00:00</Start><Finish>2027-03-12T17:00:00</Finish><Duration>PT80H0M0S</Duration><Work>PT160H0M0S</Work><Cost>12800</Cost></Baseline>
+    </Task>
+    <Task>
+      <UID>300</UID><ID>5</ID><Name>Foundations</Name><Type>2</Type><EffortDriven>1</EffortDriven>
+      <OutlineLevel>2</OutlineLevel><Summary>1</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT400H0M0S</Duration><Start>2027-03-15T08:00:00</Start><Finish>2027-04-09T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete><Deadline>2027-04-16T17:00:00</Deadline>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>215</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+    <Task>
+      <UID>310</UID><ID>6</ID><Name>Piling (night shift)</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>0</Milestone><CalendarUID>9</CalendarUID>
+      <Duration>PT240H0M0S</Duration><Start>2027-03-15T20:00:00</Start><Finish>2027-04-02T23:59:00</Finish>
+      <Manual>1</Manual><ManualStart>2027-03-15T20:00:00</ManualStart><ManualFinish>2027-04-02T23:59:00</ManualFinish>
+      <PercentComplete>0</PercentComplete>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>215</PredecessorUID><Type>3</Type><LinkLag>2400</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+    <Task>
+      <UID>320</UID><ID>7</ID><Name>Ground beam</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT120H0M0S</Duration><Start>2027-03-29T08:00:00</Start><Finish>2027-04-09T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>310</PredecessorUID><Type>0</Type><LinkLag>-4800</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+    <Task>
+      <UID>400</UID><ID>8</ID><Name>Frame</Name><Type>1</Type><OutlineLevel>2</OutlineLevel>
+      <Summary>1</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT320H0M0S</Duration><Start>2027-04-12T08:00:00</Start><Finish>2027-05-21T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>320</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+    <Task>
+      <UID>410</UID><ID>9</ID><Name>Concrete pours</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>0</Milestone>
+      <Duration>PT240H0M0S</Duration><Start>2027-04-12T08:00:00</Start><Finish>2027-05-07T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+    </Task>
+    <Task>
+      <UID>420</UID><ID>10</ID><Name>Frame complete</Name><Type>0</Type><OutlineLevel>3</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>1</Milestone>
+      <Duration>PT0H0M0S</Duration><Start>2027-05-21T17:00:00</Start><Finish>2027-05-21T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>410</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+    <Task>
+      <UID>500</UID><ID>11</ID><Name>Handover</Name><Type>0</Type><OutlineLevel>2</OutlineLevel>
+      <Summary>0</Summary><IsActive>1</IsActive><Milestone>1</Milestone>
+      <Duration>PT0H0M0S</Duration><Start>2027-05-28T17:00:00</Start><Finish>2027-05-28T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <PredecessorLinks>
+        <PredecessorLink><PredecessorUID>420</PredecessorUID><Type>1</Type><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+      </PredecessorLinks>
+    </Task>
+  </Tasks>
+  <Resources>
+    <Resource>
+      <UID>1</UID><ID>1</ID><Name>Piling crew</Name><Type>1</Type><MaxUnits>100</MaxUnits>
+      <StandardRate>9500</StandardRate><CostPerUse>0</CostPerUse><CalendarUID>9</CalendarUID>
+    </Resource>
+    <Resource>
+      <UID>7</UID><ID>2</ID><Name>Rebar</Name><Type>2</Type><MaxUnits>0</MaxUnits><StandardRate>12000</StandardRate>
+    </Resource>
+  </Resources>
+  <Assignments>
+    <Assignment>
+      <UID>11</UID><TaskUID>215</TaskUID><ResourceUID>1</ResourceUID><Units>100</Units>
+      <Work>PT80H0M0S</Work><ActualWork>PT48H0M0S</ActualWork><RegularWork>PT80H0M0S</RegularWork><Cost>7600</Cost>
+    </Assignment>
+    <Assignment>
+      <UID>12</UID><TaskUID>320</TaskUID><ResourceUID>7</ResourceUID><Units>100</Units>
+      <Work>PT0H0M0S</Work><Cost>9600</Cost>
+    </Assignment>
+    <Assignment>
+      <UID>13</UID><TaskUID>410</TaskUID><ResourceUID>1</ResourceUID><Units>200</Units>
+      <Work>PT240H0M0S</Work><RegularWork>PT240H0M0S</RegularWork>
+    </Assignment>
+  </Assignments>
+</Project>
